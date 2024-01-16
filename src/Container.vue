@@ -52,7 +52,6 @@ const open = (url: string) => {
   <div class="container">
     <div class="left">
       <img class="avatar" :src="'https://q1.qlogo.cn/g?b=qq&nk=485184047&s=100'" alt="">
-
       <ul class="contact">
         <li @click="openURL(1)">
           <svg class="icon" style="width: 2em;height: 2em;vertical-align: middle;fill: currentColor;overflow: hidden;"
@@ -105,6 +104,9 @@ const open = (url: string) => {
 <style scoped>
 .container {
   display: flex;
+  @media screen and (max-aspect-ratio: 1/1) {
+    flex-direction: column;
+  }
 }
 
 .left {
@@ -121,12 +123,22 @@ const open = (url: string) => {
   border-radius: 50%;
   margin-left: 50px;
   margin-right: 50px;
+
+  @media screen and (max-width: 1440px) {
+    margin-top:50px;
+  }
 }
 
 .divider {
   width: 1px;
   height: 100%;
   border-right: 3px solid white;
+  @media screen and (max-aspect-ratio: 1/1) {
+    height: 0;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 3px solid white;
+  }
 }
 
 .contact {
@@ -150,6 +162,10 @@ const open = (url: string) => {
 
 .right h1 {
   font-size: 2.5rem;
+
+  @media screen and (max-width: 1440px) {
+    font-size:1.2rem;
+  }
 }
 
 .right p {

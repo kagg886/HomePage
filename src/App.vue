@@ -3,7 +3,6 @@
   <ParticlesComponent
       id="tsparticles"
       :particlesInit="particlesInit"
-      :particlesLoaded="particlesLoaded"
       :options="options"
   />
 </template>
@@ -25,14 +24,19 @@
 
   border: 3px solid white;
   border-radius: 30px;
+
+  @media screen and (max-width: 1440px) {
+    height:auto;
+    margin: auto;
+  }
 }
 </style>
-<script setup>
+<script setup lang="ts">
 import { loadSlim } from "tsparticles-slim";
 import {ParticlesComponent} from "particles.vue3";
 import png from "@/img/bg.png"
 import Container from "@/Container.vue";
-const particlesInit = async engine => {
+const particlesInit = async (engine: any) => {
   //await loadFull(engine);
   await loadSlim(engine);
 };
